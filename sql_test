@@ -7,5 +7,4 @@ conn = sqlite3.connect("testSQL.db")
 cur = conn.cursor()
 cur.executescript('''DROP TABLE IF EXISTS products''')
 cur.execute("create table products (name TEXT, price INTEGER )")
-
-
+conn.close()
