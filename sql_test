@@ -1,10 +1,11 @@
 import sqlite3
 
-#一回実行されてファイルが作られると、次回以降はファイル名を参照して既存のファイルと接続される。
+# 一回実行されてファイルが作られると、次回以降はファイル名を参照して既存のファイルと接続される。
 conn = sqlite3.connect("testSQL.db")
 
-#カーソル作成
+# カーソル作成
 cur = conn.cursor()
 cur.executescript('''DROP TABLE IF EXISTS products''')
 cur.execute("create table products (name TEXT, price INTEGER )")
+#close処理
 conn.close()
