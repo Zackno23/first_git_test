@@ -1,0 +1,9 @@
+import sqlite3
+
+#一回実行されてファイルが作られると、次回以降はファイル名を参照して既存のファイルと接続される。
+conn = sqlite3.connect("testSQL.db")
+
+#カーソル作成
+cur = conn.cursor()
+
+
