@@ -8,7 +8,7 @@ cur = conn.cursor()
 
 #テーブルが存在しないときのみテーブルを作成
 if cur.fetchone() == (0,):
-    cur.execute("CREATE TABLE GPS (longitude INTEGER, latitude INTEGER, place TEXT)")
+    cur.execute("CREATE TABLE GPS_log (longitude INTEGER, latitude INTEGER, place TEXT)")
 #sqliteでは文字列はシングルクオートじゃなきゃダメみたい
 cur.execute("INSERT INTO products VALUES (123, 456, '八幡平市役所')")
 conn.commit()
