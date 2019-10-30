@@ -5,8 +5,8 @@ conn = sqlite3.connect("testSQL.db")
 
 # カーソル作成
 cur = conn.cursor()
-# cur.executescript('''DROP TABLE IF EXISTS products''')
-# conn.executescript('create table GPS if not exists (longitude INTEGER, latitude INTEGER, place TEXT)')
+
+#テーブルが存在しないときのみテーブルを作成
 if cur.fetchone() == (0,):
     cur.execute("CREATE TABLE GPS (longitude INTEGER, latitude INTEGER, place TEXT)")
 #sqliteでは文字列はシングルクオートじゃなきゃダメみたい
