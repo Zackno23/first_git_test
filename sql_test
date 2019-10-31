@@ -6,11 +6,15 @@ conn = sqlite3.connect("testSQL.db")
 # カーソル作成
 cur = conn.cursor()
 
-#テーブルが存在しないときのみテーブルを作成
+# テーブルが存在しないときのみテーブルを作成
 if cur.fetchone() == (0,):
     cur.execute("CREATE TABLE GPS_log (longitude INTEGER, latitude INTEGER, place TEXT)")
-#sqliteでは文字列はシングルクオートじゃなきゃダメみたい
-cur.execute("INSERT INTO products VALUES (123, 456, '八幡平市役所')")
+
+lon = int(input('longitude: '))
+lat = int(input('latitude'))
+pla = input('place')
+add_data = f'''INSERT INTO GPS_log VALUES ({lon}, {lat}, {pla})'''
+cur.execute(add_data)
 conn.commit()
-#close処理
+# close処理
 conn.close()
